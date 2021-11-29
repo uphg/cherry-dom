@@ -1,6 +1,6 @@
 import createStroageObject from './_createStroageObject'
 
-const session = window.sessionStorage
+const session = window?.sessionStorage
 
 const {
   has: hasSession,

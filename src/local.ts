@@ -1,6 +1,6 @@
 import createStroageObject from './_createStroageObject'
 
-const local = window.localStorage
+const local = window?.localStorage
 
 const {
   has: hasLocal,
@@ -8,6 +8,6 @@ const {
   set: setLocal,
   remove: removeLocal,
   clear: clearLocal
-} = createStroageObject(local)
+} = createStroageObject(local) || {}
 
 export { hasLocal, getLocal, setLocal, removeLocal, clearLocal }

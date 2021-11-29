@@ -1,4 +1,3 @@
-import './style.css'
 import { getLocal, removeLocal, setLocal } from './Local'
 
 setLocal('Jack', 'hi')
