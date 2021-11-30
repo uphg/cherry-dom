@@ -1,29 +1,28 @@
 import { getLocal, removeLocal, setLocal } from './Local'
-import { getStyle } from './dom'
-
-// setLocal('Jack', 'hi')
-
-// setTimeout(() => {
-//   const jack = getLocal('Jack')
-//   console.log('jack')
-//   console.log(jack)
-//   removeLocal('Jack')
-// })
+import { getStyle, setStyle } from './dom'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
 const div = document.createElement('div')
 
-div.style.height = '80px'
-div.style.width = '100px'
-div.style.paddingTop = '20px'
-div.style.marginTop = '5px'
+setStyle(div, {
+  ['padding-top']: '20px',
+  ['margin-top']: '5px'
+})
 
-app.appendChild(div)
+setStyle(div, {
+  height: '80px',
+  width: '100px',
+  backgroundColor: '#ccc',
+  paddingBottom: '10px',
+  marginBottom: '15px'
+})
 
-console.log(getStyle(div, ['height', 'width']))
+console.log('getStyle(div)')
+console.log(getStyle(div))
 
 app.innerHTML = `
   <h1>Hello Vite!</h1>
   <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
 `
+app.appendChild(div)

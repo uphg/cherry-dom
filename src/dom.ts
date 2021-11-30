@@ -1,3 +1,6 @@
+import splitCapsWord from './_splitCapsWord'
+import toFirstCaps from './_toFirstCaps'
+
 // 添加 class
 
 export const trim = (string: string) => {
@@ -36,15 +39,25 @@ export const removeClass = (el: Element, name: string) => {
   }
 }
 
-// const setStyle = (el, styles: { [key: string]: string }) => {
+interface SetStyleElement extends HTMLElement {
+  style: any
+}
 
-// }
+export const setStyle = (el: SetStyleElement, styles: { [key: string]: string }) => {
+  const styleKeys = Object.keys(styles)
+
+  for(const key of styleKeys) {
+    if (!key) continue
+
+    el.style[toFirstCaps(key)] = styles[key]
+  }
+}
 
 export const getComputedStyle = (el: Element, pseudoEl?: string | null | undefined) => (
   window?.getComputedStyle(el, pseudoEl) as unknown as { [key: string]: string }
 )
 
-const styleMap = (stylesString: string | null) => {
+export const toStyleMap = (stylesString: string | null) => {
   if (!stylesString) return
 
   const maps: string[] = stylesString?.split(/; /)
@@ -53,14 +66,14 @@ const styleMap = (stylesString: string | null) => {
   const styles: { [key: string]: string } = {}
   for (const item of maps) {
     const map = item.split(': ')
-    styles[map[0]] = map[1]
+    styles[toFirstCaps(map[0])] = map[1]
   }
 
   return styles
 }
 
 export const getStyle = (el: HTMLElement, propertyNames?: string[] | string) => {
-  const styles = styleMap(el.getAttribute('style'))
+  const styles = toStyleMap(el.getAttribute('style'))
   if (!styles) return
   if (!propertyNames) return styles
   if (typeof propertyNames === 'string') {
