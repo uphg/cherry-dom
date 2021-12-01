@@ -1,4 +1,3 @@
-import splitCapsWord from './_splitCapsWord'
 import toFirstCaps from './_toFirstCaps'
 
 // 添加 class
@@ -48,7 +47,6 @@ export const setStyle = (el: SetStyleElement, styles: { [key: string]: string })
 
   for(const key of styleKeys) {
     if (!key) continue
-
     el.style[toFirstCaps(key)] = styles[key]
   }
 }
@@ -61,7 +59,8 @@ export const toStyleMap = (stylesString: string | null) => {
   if (!stylesString) return
 
   const maps: string[] = stylesString?.split(/; /)
-  maps[maps?.length - 1] = maps[maps?.length - 1].replace(';', '')
+  const lastIndex = maps?.length - 1
+  maps[lastIndex] = maps[lastIndex].replace(';', '')
 
   const styles: { [key: string]: string } = {}
   for (const item of maps) {

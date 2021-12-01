@@ -1,4 +1,4 @@
-import { getLocal, removeLocal, setLocal } from './Local'
+// import { getLocal, removeLocal, setLocal } from './Local'
 import { getStyle, setStyle } from './dom'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
