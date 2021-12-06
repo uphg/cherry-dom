@@ -1,7 +1,5 @@
 import toFirstCaps from './_toFirstCaps'
 
-// 添加 class
-
 export const trim = (string: string) => {
   return string.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
 }
@@ -55,15 +53,15 @@ export const getComputedStyle = (el: Element, pseudoEl?: string | null | undefin
   window?.getComputedStyle(el, pseudoEl) as unknown as { [key: string]: string }
 )
 
-export const toStyleMap = (stylesString: string | null) => {
+const toStyleMap = (stylesString: string | null) => {
   if (!stylesString) return
 
-  const maps: string[] = stylesString?.split(/; /)
-  const lastIndex = maps?.length - 1
-  maps[lastIndex] = maps[lastIndex].replace(';', '')
+  const styleMaps: string[] = stylesString?.split(/; /)
+  const lastIndex = styleMaps?.length - 1
+  styleMaps[lastIndex] = styleMaps[lastIndex].replace(';', '')
 
   const styles: { [key: string]: string } = {}
-  for (const item of maps) {
+  for (const item of styleMaps) {
     const map = item.split(': ')
     styles[toFirstCaps(map[0])] = map[1]
   }
