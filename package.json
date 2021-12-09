@@ -1,5 +1,5 @@
 {
-  "name": "@uphg/browser",
+  "name": "tulp-bom",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
