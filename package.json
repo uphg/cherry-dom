@@ -1,6 +1,36 @@
 {
-  "name": "tulp-bom",
-  "version": "0.0.0",
+  "name": "carob",
+  "version": "0.0.1-alpha.1",
+  "license": "MIT",
+  "author": "Lv Heng",
+  "description": "A javascript DOM operations library",
+  "keywords": [
+    "javascript",
+    "DOM",
+    "methods"
+  ],
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./*": {
+      "import": "./dist/es/*",
+      "require": "./dist/cjs/*"
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uphg/carob.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uphg/carob/issues"
+  },
+  "homepage": "https://github.com/uphg/carob#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
