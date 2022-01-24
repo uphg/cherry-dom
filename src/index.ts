@@ -1,5 +1,10 @@
 export * from './local'
 export * from './session'
-export * from './dom'
-export * from './ajax'
-
+export { default as hasClass } from './hasClass'
+export { default as addClass } from './addClass'
+export { default as removeClass } from './removeClass'
+export { default as getStyle } from './getStyle'
+export { default as setStyle } from './setStyle'
+export { default as removeStyle } from './removeStyle'
+export { default as local } from './local'
+export { default as session } from './session'

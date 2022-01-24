@@ -1,13 +1,23 @@
-import createStroageObject from './_createStroageObject'
+const storage = window?.sessionStorage
 
-const session = window?.sessionStorage
-
-const {
-  has: hasSession,
-  get: getSession,
-  set: setSession,
-  remove: removeSession,
-  clear: clearSession
-} = createStroageObject(session)
-
-export { hasSession, getSession, setSession, removeSession, clearSession }
+export default {
+  has(name: string) {
+    return !!storage?.getItem(name)
+  },
+  
+  get(name: string) {
+    return JSON.parse(storage?.getItem(name) as string)
+  },
+  
+  set(name: string, value: string | number | boolean | Object) {
+    return storage?.setItem(name, JSON.stringify(value))
+  },
+  
+  remove(name: string) {
+    return storage?.removeItem(name)
+  },
+  
+  clear() {
+    return storage?.clear()
+  }
+}
