@@ -1,18 +1,22 @@
 import setStyle from "./setStyle"
-import isObject from "./_isObject"
+import each from './_each'
 
-function removeStyle(el: HTMLElement, style: { [key: string]: string } | string,) {
+function removeStyle(el: HTMLElement, style: string | string[], ...args: string[]) {
   if (!el || !style) return
 
-  if (isObject(style)) {
-    const props = Object.keys(style)
-    props.forEach((item) => {
-      setStyle(el, item, '')
+  if (args?.length > 0) {
+    removeStyle(el, [style as string, ...args])
+    return
+  }
+
+  if (Array.isArray(style)) {
+    each(style, (item) => {
+      setStyle(el, item as string, '')
     })
     return
   }
 
-  setStyle(el, style, '')
+  setStyle(el, style as string, '')
 }
 
 export default removeStyle

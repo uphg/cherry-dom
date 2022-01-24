@@ -1,13 +1,13 @@
 import trims from "./_trims"
 
-function hasClass(el: HTMLElement, name: string) {
-  if (!el || !name) return false
+function hasClass(el: HTMLElement, className: string) {
+  if (!el || !className) return false
 
   if (el.classList) {
-    return el.classList.contains(name)
+    return el.classList.contains(className)
   }
 
-  return trims(el.getAttribute('class') || '').includes(name)
+  return trims(el.getAttribute('class') || '').includes(className)
 }
 
 export default hasClass

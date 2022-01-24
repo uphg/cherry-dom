@@ -1,20 +1,33 @@
 import trims from './_trims'
+import each from './_each'
 
-function removeClass(el: Element, name: string) {
-  if (!el || !name) return
-  const classes = trims(name)
-  let prevClass = el.getAttribute('class') || ''
+function removeClass(el: Element, className: string | string[], ...args: string[]) {
+  if (!el || !className) return
 
+  if (args?.length > 0) {
+    removeClass(el, [className as string, ...args])
+    return
+  }
+
+  if (Array.isArray(className)) {
+    each(className, (item) => {
+      removeClass(el, item)
+    })
+    return
+  }
+
+  const classes = trims(className)
   if (el.classList) {
     el.classList.remove(...classes)
     return
   }
 
-  classes.forEach((item) => {
+  let prevClass = el.getAttribute('class') || ''
+  each(classes, (item) => {
     prevClass = prevClass.replace(` ${item} `, '')
   })
-  const className = trims(prevClass).join(' ')
-  el.setAttribute('class', className)
+  const merging = trims(prevClass).join(' ')
+  el.setAttribute('class', merging)
 }
 
 export default removeClass

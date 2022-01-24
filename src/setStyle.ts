@@ -1,6 +1,7 @@
 import type { StyleElement } from './_interface'
 import isObject from './_isObject'
 import camelize from "./_camelize";
+import each from './_each'
 
 function setStyle(
   el: StyleElement,
@@ -8,10 +9,9 @@ function setStyle(
   value?: string
 ) {
   if (isObject(styles)) {
-    const props = Object.keys(styles)
-    props.forEach((item: string) => {
+    each(styles, (item, key) => {
       // @ts-ignore
-      setStyle(el, item, styles[item])
+      setStyle(el, key, item)
     })
     return
   }

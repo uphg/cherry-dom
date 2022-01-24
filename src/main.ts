@@ -39,20 +39,27 @@ test('setStyle', ()=> {
   setStyle(div, {
     width: '180px',
     height: '100px',
-    'background-color': 'rgb(0, 0, 128)'
+    backgroundColor: 'yellow',
+    marginBottom: '20px',
+    'line-height': '1.5'
   })
-  setStyle(div, 'border', '1px solid red')
+  setStyle(div, 'paddingTop', '10px')
   setStyle(div, 'margin-top', '20px')
+  setStyle(div, 'border', '1px solid red')
 
   console.assert(div.style.width === '180px')
   console.assert(div.style.height === '100px')
-  console.assert(div.style.backgroundColor === 'rgb(0, 0, 128)')
-  console.assert(div.style.border === '1px solid red')
+  console.assert(div.style.backgroundColor === 'yellow')
+  console.assert(div.style.marginBottom === '20px')
+  console.assert(div.style.lineHeight === '1.5')
+  console.assert(div.style.paddingTop === '10px')
   console.assert(div.style.marginTop === '20px')
+  console.assert(div.style.border === '1px solid red')
 })
 
 test('addClass', ()=> {
   const div = document.createElement('div')
+  div.textContent = 'addClass'
   app.appendChild(div)
   setStyle(div, {
     width: '100px',
@@ -61,6 +68,10 @@ test('addClass', ()=> {
   div.classList.add('border-grey')
   addClass(div, 'red')
   addClass(div, 'blue')
+  addClass(div, 'a1 a2 a3')
+  addClass(div, 'b1', 'b2', 'b3')
+  addClass(div, ['c1', 'c2', 'c3'])
+  console.assert(div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3 c1 c2 c3')
 })
 
 test('removeClass', ()=> {
@@ -71,9 +82,13 @@ test('removeClass', ()=> {
     height: '100px'
   })
   div.classList.add('border-grey')
-  div.classList.add('red')
-  div.classList.add('blue')
-  removeClass(div, 'blue')
+  addClass(div, 'red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3')
+
+  removeClass(div, 'red')
+  removeClass(div, 'a1 a2')
+  removeClass(div, 'b2', 'b3')
+  removeClass(div, ['c1', 'c3'])
+  console.assert(div.getAttribute('class') === 'border-grey blue a3 b1 c2')
 })
 
 test('hasClass', ()=> {
@@ -96,15 +111,30 @@ test('removeStyle', () => {
   setStyle(div, {
     width: '180px',
     height: '100px',
-    marginTop: '20px'
+    marginTop: '20px',
+    marginBottom: '20px',
+    marginLeft: '20px',
+    marginRight: '20px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+    paddingLeft: '10px',
+    paddingRight: '10px'
   })
 
-  removeStyle(div, 'marginTop')
-  console.assert(div.style.marginTop === '')
-  console.assert(div.style.width === '180px')
-  console.assert(div.style.height === '100px')
   removeStyle(div, 'height')
+  removeStyle(div, 'marginTop', 'margin-left')
+  removeStyle(div, ['paddingBottom', 'padding-right'])
+
   console.assert(div.style.height === '')
+  console.assert(div.style.marginTop === '')
+  console.assert(div.style.marginLeft === '')
+  console.assert(div.style.paddingBottom === '')
+  console.assert(div.style.paddingRight === '')
+  console.assert(div.style.width === '180px')
+  console.assert(div.style.marginBottom === '20px')
+  console.assert(div.style.marginRight === '20px')
+  console.assert(div.style.paddingTop === '10px')
+  console.assert(div.style.paddingLeft === '10px')
 })
 
 test('session', ()=> {
