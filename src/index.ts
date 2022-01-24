@@ -1,5 +1,4 @@
-export * from './local'
-export * from './session'
+export { default as isServer } from './isServer'
 export { default as hasClass } from './hasClass'
 export { default as addClass } from './addClass'
 export { default as removeClass } from './removeClass'

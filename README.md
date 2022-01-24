@@ -4,6 +4,14 @@
 
 安装
 
-```js
+```sh
 npm install carob
+```
+
+使用
+
+```js
+import { addClass } from 'carob'
+
+addClass(el, 'red')
 ```
