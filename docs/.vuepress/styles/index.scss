@@ -1,20 +1,21 @@
 :root {
-  // // brand colors
-  // --c-brand: #3eaf7c;
-  // --c-brand-light: #4abf8a;
-  // brand colors
   --c-brand: #1a73e8;
   --c-brand-light: #2783fc;
 }
 
+#main-title {
+  padding-top: 0;
+  font-size: 120px;
+  text-shadow: 5px 5px 0 #ffc947;
+  margin-top: 4.2rem;
+  font-weight: 700px;
+}
+
 html.dark {
-  // brand colors
   --c-brand: #00b2ff;
   --c-brand-light: #3e8ed0;
-  .home-header .logo {
-    display: none;
-  }
-  .home-header .logo-dark {
-    display: block;
+  #main-title {
+    color: var(--c-text-lightest);
+    text-shadow: 5px 5px 0 #535353;
   }
 }

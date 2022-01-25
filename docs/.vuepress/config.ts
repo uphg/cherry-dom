@@ -17,7 +17,7 @@ const nav = [
 
 export default defineUserConfig<DefaultThemeOptions>({
   base: '/carob/',
-  title: 'carob',
+  title: 'Carob',
   description: 'JavaScript 浏览器 API 合集',
 
   themeConfig: {

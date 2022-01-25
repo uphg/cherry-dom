@@ -1,22 +1,32 @@
 ---
 home: true
-sidebar: false
-pageClass: home
+title: Home
+# heroImage: /images/hero.png
+actions:
+  - text: 快速开始
+    link: /docs/
+    type: primary
+features:
+  - title: Simplicity First
+    details: Minimal setup with markdown-centered project structure helps you focus on writing.
+  - title: Vue-Powered
+    details: Enjoy the dev experience of Vue, use Vue components in markdown, and develop custom themes with Vue.
+  - title: Performant
+    details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+footer: MIT Licensed | Copyright © 2022-present Lv Heng
 ---
 
-使用 npm 安装
+安装
 
 ```sh
-npm install @uphg/fun
-# or yarn add @uphg/fun
+npm install carob
+# or yarn add carob
 ```
 
 在项目中引入
 
 ```js
-// ES6 modules
-import each from 'uphg/fun/each'
+import { addClass } from 'carob'
 
-// CommonJS modules
-const each = require('@uphg/fun/each')
+addClass(el, 'red')
 ```
