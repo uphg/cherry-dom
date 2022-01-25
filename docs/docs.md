@@ -25,12 +25,14 @@ el.getAttribute('class')
 给元素删除 class 类名
 
 ```js
-el.classList.add(el, 'red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3')
+el.classList.add('red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3')
 
 removeClass(el, 'red')
 removeClass(el, 'a1 a2')
 removeClass(el, 'b2', 'b3')
 removeClass(el, ['c1', 'c3'])
+
+el.getAttribute('class')
 // => blue a3 b1 c2
 ```
 
