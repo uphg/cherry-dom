@@ -89,3 +89,8 @@ removeStyle(el, ['color', 'border'])
 el.getAttribute('style')
 // => background-color: yellow;
 ```
+
+## 本地存储
+
+### localStorage
+

@@ -1,23 +1,28 @@
+import isNil from './_isNil'
+
 const storage = window?.sessionStorage
 
-export default {
-  has(name: string) {
-    return !!storage?.getItem(name)
-  },
+export function hasSession(name: string) {
+  if (isNil(name)) return false
+  return !!storage?.getItem(name)
+}
 
-  get(name: string) {
-    return JSON.parse(storage?.getItem(name) as string)
-  },
+export function getSession(name: string) {
+  if (isNil(name)) return null
+  const result = storage?.getItem(name)
+  return result && JSON.parse(result)
+}
 
-  set(name: string, value: string | number | boolean | Object) {
-    return storage?.setItem(name, JSON.stringify(value))
-  },
+export function setSession(name: string, value: string | number | boolean | Object) {
+  if (isNil(name) || isNil(value)) return
+  return storage?.setItem(name, JSON.stringify(value))
+}
 
-  remove(name: string) {
-    return storage?.removeItem(name)
-  },
+export function removeSession(name: string) {
+  if (isNil(name)) return
+  return storage?.removeItem(name)
+}
 
-  clear() {
-    return storage?.clear()
-  }
+export function clearSession() {
+  return storage?.clear()
 }
