@@ -91,3 +91,19 @@ removeStyle(el, ['color', 'border'])
 el.getAttribute('style')
 // => background-color: yellow;
 ```
+
+## 工具
+
+### isServer
+
+获取当前环境是否为服务端（Node.js）
+
+```js
+// Node.js
+isServer
+// => true
+
+// 浏览器
+isServer
+// => false
+```

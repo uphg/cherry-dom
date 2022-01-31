@@ -7,8 +7,6 @@ import removeStyle from './removeStyle'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
-import session from './session'
-import local from './session'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 const h1 = document.createElement('h1')
@@ -135,60 +133,6 @@ test('removeStyle', () => {
   console.assert(div.style.marginRight === '20px')
   console.assert(div.style.paddingTop === '10px')
   console.assert(div.style.paddingLeft === '10px')
-})
-
-test('session', ()=> {
-  session.set('p1', { a: 1, b: 2 })
-  session.set('p2', { c: 3, d: 4 })
-  session.set('p3', 'hi')
-  const p1 = session.get('p1')
-  const p2 = session.get('p2')
-  const p3 = session.get('p3')
-  console.assert(p1.a === 1)
-  console.assert(p1.b === 2)
-  console.assert(p2.c === 3)
-  console.assert(p2.d === 4)
-  console.assert(p3 === 'hi')
-
-  console.assert(session.has('p1'))
-  console.assert(session.has('p2'))
-
-  session.remove('p1')
-
-  console.assert(session.has('p1') === false)
-  console.assert(session.has('p2'))
-  console.assert(session.has('p3'))
-  
-  session.clear()
-  console.assert(session.has('p2') === false)
-  console.assert(session.has('p3') === false)
-})
-
-test('local', ()=> {
-  local.set('p1', { a: 1, b: 2 })
-  local.set('p2', { c: 3, d: 4 })
-  local.set('p3', 'hi')
-  const p1 = local.get('p1')
-  const p2 = local.get('p2')
-  const p3 = local.get('p3')
-  console.assert(p1.a === 1)
-  console.assert(p1.b === 2)
-  console.assert(p2.c === 3)
-  console.assert(p2.d === 4)
-  console.assert(p3 === 'hi')
-
-  console.assert(local.has('p1'))
-  console.assert(local.has('p2'))
-
-  local.remove('p1')
-
-  console.assert(local.has('p1') === false)
-  console.assert(local.has('p2'))
-  console.assert(local.has('p3'))
-  
-  local.clear()
-  console.assert(local.has('p2') === false)
-  console.assert(local.has('p3') === false)
 })
 
 // app.innerHTML = `
