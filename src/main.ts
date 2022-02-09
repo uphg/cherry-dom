@@ -68,8 +68,7 @@ test('addClass', ()=> {
   addClass(div, 'blue')
   addClass(div, 'a1 a2 a3')
   addClass(div, 'b1', 'b2', 'b3')
-  addClass(div, ['c1', 'c2', 'c3'])
-  console.assert(div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3 c1 c2 c3')
+  console.assert(div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3')
 })
 
 test('removeClass', ()=> {
@@ -80,13 +79,12 @@ test('removeClass', ()=> {
     height: '100px'
   })
   div.classList.add('border-grey')
-  addClass(div, 'red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3')
+  addClass(div, 'red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3')
 
   removeClass(div, 'red')
   removeClass(div, 'a1 a2')
   removeClass(div, 'b2', 'b3')
-  removeClass(div, ['c1', 'c3'])
-  console.assert(div.getAttribute('class') === 'border-grey blue a3 b1 c2')
+  console.assert(div.getAttribute('class') === 'border-grey blue a3 b1')
 })
 
 test('hasClass', ()=> {
@@ -112,27 +110,18 @@ test('removeStyle', () => {
     marginTop: '20px',
     marginBottom: '20px',
     marginLeft: '20px',
-    marginRight: '20px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-    paddingLeft: '10px',
-    paddingRight: '10px'
+    marginRight: '20px'
   })
 
   removeStyle(div, 'height')
   removeStyle(div, 'marginTop', 'margin-left')
-  removeStyle(div, ['paddingBottom', 'padding-right'])
 
+  console.assert(div.style.width === '180px')
   console.assert(div.style.height === '')
   console.assert(div.style.marginTop === '')
   console.assert(div.style.marginLeft === '')
-  console.assert(div.style.paddingBottom === '')
-  console.assert(div.style.paddingRight === '')
-  console.assert(div.style.width === '180px')
   console.assert(div.style.marginBottom === '20px')
   console.assert(div.style.marginRight === '20px')
-  console.assert(div.style.paddingTop === '10px')
-  console.assert(div.style.paddingLeft === '10px')
 })
 
 // app.innerHTML = `

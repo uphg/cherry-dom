@@ -10,8 +10,7 @@ function setStyle(
 ) {
   if (isObject(styles)) {
     each(styles, (item, key) => {
-      // @ts-ignore
-      setStyle(el, key, item)
+      setStyle(el, key as string, item)
     })
     return
   }

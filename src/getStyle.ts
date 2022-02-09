@@ -11,5 +11,4 @@ function getStyle(el: HTMLElement, styleName: string) {
   return (computed ? computed?.[styleName] : el['style'][styleName]) || ''
 }
 
-
 export default getStyle

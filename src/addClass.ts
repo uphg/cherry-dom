@@ -1,29 +1,14 @@
-import trims from './_trims'
-import each from './_each'
+import mergeClass from './_mergeClass'
 
-function addClass(el: Element, className: string | string[], ...args: string[]) {
-  if (!el || !className) return
-
-  if (args?.length > 0) {
-    addClass(el, [className as string, ...args])
-    return
-  }
-
-  if (Array.isArray(className)) {
-    each(className, (item) => {
-      addClass(el, item)
-    })
-    return
-  }
-
-  const classes = trims(className)
+function addClass(el: Element, ...args: string[]) {
+  const classNames = mergeClass(args)
   if (el.classList) {
-    el.classList.add(...classes)
+    el.classList.add(...classNames)
     return
   }
 
-  const merging = (el.getAttribute('class') || '') + ` ${classes.join(' ')}`
-  el.setAttribute('class', merging)
+  const className = (el.getAttribute('class') || '') + ` ${classNames.join(' ')}`
+  el.setAttribute('class', className)
 }
 
 export default addClass

@@ -12,12 +12,11 @@ sidebar: auto
 
 ```js
 addClass(el, 'blue')
-addClass(el, 'a1 a2 a3')
-addClass(el, 'b1', 'b2', 'b3')
-addClass(el, ['c1', 'c2', 'c3'])
+addClass(el, 'a1 a2')
+addClass(el, 'b1', 'b2')
 
 el.getAttribute('class')
-// => blue a1 a2 a3 b1 b2 b3 c1 c2 c3
+// => blue a1 a2 b1 b2
 ```
 
 ### <synta text="removeClass(el, className[, ...args])">removeClass</synta>
@@ -25,15 +24,14 @@ el.getAttribute('class')
 给元素删除 class 类名
 
 ```js
-el.classList.add('red', 'blue', 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3')
+el.classList.add('red', 'blue', 'a1', 'a2', 'b1', 'b2')
 
 removeClass(el, 'red')
 removeClass(el, 'a1 a2')
 removeClass(el, 'b2', 'b3')
-removeClass(el, ['c1', 'c3'])
 
 el.getAttribute('class')
-// => blue a3 b1 c2
+// => blue
 ```
 
 ### <synta text="hasClass(el, className)">hasClass</synta>
@@ -82,11 +80,8 @@ el.getAttribute('style')
 el.style.backgroundColor = 'yellow'
 el.style.height = '50px'
 el.style.width = '100px'
-el.style.color = 'red'
-el.style.border = '1px solid red'
 
 removeStyle(el, 'height', 'width')
-removeStyle(el, ['color', 'border'])
 
 el.getAttribute('style')
 // => background-color: yellow;
