@@ -1,5 +1,5 @@
 import setStyle from "./setStyle"
-import each from './_each'
+import each from './internal/each'
 
 function removeStyle(el: HTMLElement, ...args: string[]) {
   if (!el || !args) return

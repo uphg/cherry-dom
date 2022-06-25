@@ -1,7 +1,7 @@
-import type { StyleElement } from './_interface'
-import isObject from './_isObject'
-import camelize from "./_camelize";
-import each from './_each'
+import type { StyleElement } from './internal/interface'
+import isObject from './internal/isObject'
+import camelize from "./internal/camelize";
+import each from './internal/each'
 
 function setStyle(
   el: StyleElement,

@@ -1,6 +1,6 @@
 import './style.css'
-import test from './_test'
-import camelize from './_camelize'
+import test from './internal/test'
+import camelize from './internal/camelize'
 import getStyle from './getStyle'
 import setStyle from './setStyle'
 import removeStyle from './removeStyle'
@@ -68,7 +68,9 @@ test('addClass', ()=> {
   addClass(div, 'blue')
   addClass(div, 'a1 a2 a3')
   addClass(div, 'b1', 'b2', 'b3')
-  console.assert(div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3')
+  addClass(div, ['c1', 'c2'], ['c3', 'c4'])
+  throw new Error('我是错误')
+  console.assert(!!div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3 c1 c2 c3 c4')
 })
 
 test('removeClass', ()=> {

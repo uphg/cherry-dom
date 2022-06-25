@@ -1,6 +1,6 @@
-import each from './_each'
-import trims from './_trims'
-import mergeClass from './_mergeClass'
+import each from './internal/each'
+import splitClass from './internal/splitClass'
+import mergeClass from './internal/mergeClass'
 
 function removeClass(el: Element, ...args: string[]) {
   const classNames = mergeClass(args)
@@ -14,7 +14,7 @@ function removeClass(el: Element, ...args: string[]) {
   each(classNames, (item) => {
     prev = prev.replace(` ${item} `, '')
   })
-  const mergings = trims(prev)
+  const mergings = splitClass(prev)
   mergings && el.setAttribute('class', mergings.join(' '))
 }
 

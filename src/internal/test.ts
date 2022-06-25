@@ -1,6 +1,6 @@
 export default function test(describe: string, func: Function) {
+  let error
   let status = true
-  let error = null
   try {
     func()
   } catch(e) {

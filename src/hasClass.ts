@@ -1,4 +1,4 @@
-import trims from "./_trims"
+import splitClass from "./internal/splitClass"
 
 function hasClass(el: HTMLElement, className: string) {
   if (!el || !className) return false
@@ -7,7 +7,7 @@ function hasClass(el: HTMLElement, className: string) {
     return el.classList.contains(className)
   }
 
-  return trims(el.getAttribute('class') || '').includes(className)
+  return splitClass(el.getAttribute('class') || '').includes(className)
 }
 
 export default hasClass

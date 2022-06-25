@@ -1,4 +1,4 @@
-import camelize from "./_camelize";
+import camelize from "./internal/camelize";
 
 function getStyle(el: HTMLElement, styleName: string) {
   if (!el || !styleName) return null
