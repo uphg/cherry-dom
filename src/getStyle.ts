@@ -2,13 +2,8 @@ import camelize from "./internal/camelize";
 
 function getStyle(el: HTMLElement, styleName: string) {
   if (!el || !styleName) return null
-
   styleName = camelize(styleName)
-  // see: https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle#defaultview
-  const computed = document.defaultView?.getComputedStyle(el, '')
-
-  // @ts-ignore
-  return (computed ? computed?.[styleName] : el['style'][styleName]) || ''
+  return (el['style'] as Record<string, any>)[styleName] as string
 }
 
 export default getStyle

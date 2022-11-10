@@ -1,7 +1,17 @@
-export { default as isServer } from './isServer'
-export { default as hasClass } from './hasClass'
-export { default as addClass } from './addClass'
-export { default as removeClass } from './removeClass'
-export { default as getStyle } from './getStyle'
-export { default as setStyle } from './setStyle'
-export { default as removeStyle } from './removeStyle'
+import isServer from './isServer'
+import hasClass from './hasClass'
+import addClass from './addClass'
+import removeClass from './removeClass'
+import getStyle from './getStyle'
+import setStyle from './setStyle'
+import removeStyle from './removeStyle'
+
+export {
+  isServer,
+  hasClass,
+  addClass,
+  removeClass,
+  getStyle,
+  setStyle,
+  removeStyle
+}

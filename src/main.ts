@@ -69,7 +69,6 @@ test('addClass', ()=> {
   addClass(div, 'a1 a2 a3')
   addClass(div, 'b1', 'b2', 'b3')
   addClass(div, ['c1', 'c2'], ['c3', 'c4'])
-  throw new Error('我是错误')
   console.assert(!!div.getAttribute('class'), 'border-grey red blue a1 a2 a3 b1 b2 b3 c1 c2 c3 c4')
 })
 
