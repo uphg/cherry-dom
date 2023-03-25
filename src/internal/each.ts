@@ -1,28 +1,25 @@
-export interface ArrayLike<T> {
-  [index: number]: T;
-  length: number;
-}
+import isArrayLike from "./isArrayLike";
+import { Key } from "./types";
 
-export default function each<T>(
-  obj: { [key: string]: T } | ArrayLike<T> | Array<T>,
-  callback: (
-    currentValue: T,
-    index: number | string,
-    obj?: { [key: string]: T } | ArrayLike<T> | Array<T>
-  ) => unknown
+function each<T, K extends string>(
+  object: T[] | Record<K, T>,
+  callback: (item: T, inedx: number | string, object: T[] | Record<Key, T>) => void
 ) {
-  if (Array.isArray(obj)) {
-    const length = obj.length
-    for (let i = 0; i < length; i++) {
-      callback((obj as ArrayLike<T>)[i], i, obj)
+  if (isArrayLike(object)) {
+    let index = -1
+    const length = object.length
+    while (++index < length) {
+      callback((object as T[])[index], index, object)
     }
   } else {
-    const keys = Object.keys(obj)
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i]
-      callback((obj as { [key: string]: T })[key], key, obj)
+    let index = -1
+    const attrNames = Object.keys(object)
+    const length = attrNames.length
+    while (++index < length) {
+      const key = attrNames[index]
+      callback((object as Record<Key, T>)[key], key, object)
     }
   }
-
-  return obj
 }
+
+export default each
