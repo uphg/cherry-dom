@@ -4,7 +4,6 @@ import { MaybeArrayLike } from "./internal/types"
 
 function prepend(parent: Node, ...nodes: Array<MaybeArrayLike<Node | null>>) {
   const children = flat(nodes)
-
   each(children, (el) => {
     if (!el) return
     const { firstChild } = parent
@@ -14,7 +13,6 @@ function prepend(parent: Node, ...nodes: Array<MaybeArrayLike<Node | null>>) {
       parent.appendChild(el as Node)
     }
   })
-
   return parent
 }
 

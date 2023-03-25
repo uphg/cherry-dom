@@ -1,9 +1,7 @@
 import mergeClass from './internal/mergeClass'
 
 function addClass(el: Element, ...args: string[] | string[][]) {
-  
   const classNames = mergeClass(args)
-
   if (el.classList) {
     el.classList.add(...classNames)
     return

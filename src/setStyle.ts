@@ -5,7 +5,7 @@ import each from './internal/each'
 
 function setStyle(
   el: StyleElement,
-  styles: { [key: string]: string } | string,
+  styles: Record<string, string> | string,
   value?: string
 ) {
   if (isObject(styles)) {

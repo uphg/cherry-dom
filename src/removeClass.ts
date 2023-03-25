@@ -4,7 +4,6 @@ import mergeClass from './internal/mergeClass'
 
 function removeClass(el: Element, ...args: string[]) {
   const classNames = mergeClass(args)
-
   if (el.classList) {
     el.classList.remove(...classNames)
     return
