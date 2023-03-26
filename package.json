@@ -1,50 +1,19 @@
 {
-  "name": "carob",
-  "version": "0.0.1-alpha.2",
-  "license": "MIT",
-  "author": "Lv Heng",
-  "description": "A javascript DOM operations library",
-  "keywords": [
-    "javascript",
-    "DOM",
-    "methods"
-  ],
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uphg/carob.git"
-  },
-  "bugs": {
-    "url": "https://github.com/uphg/carob/issues"
-  },
-  "homepage": "https://github.com/uphg/carob#readme",
+  "name": "vite-demo-2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^17.0.10",
-    "cz-conventional-changelog": "^3.3.0",
-    "typescript": "^4.3.2",
-    "vite": "^2.6.4",
-    "@vuepress/plugin-search": "2.0.0-beta.35",
-    "vuepress": "^2.0.0-beta.35"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@vuepress/client": "2.0.0-beta.61",
+    "@vuepress/plugin-search": "2.0.0-beta.61",
+    "typescript": "5.0.2",
+    "vite": "4.2.1",
+    "vue": "^3.2.47",
+    "vuepress": "2.0.0-beta.61"
   }
 }
