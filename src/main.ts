@@ -1,4 +1,3 @@
-import './style.css'
 import test from './internal/test'
 import camelize from './internal/camelize'
 import getStyle from './getStyle'
@@ -7,6 +6,7 @@ import removeStyle from './removeStyle'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
+import { off, on } from './eventDelegation'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 const h1 = document.createElement('h1')
@@ -125,7 +125,13 @@ test('removeStyle', () => {
   console.assert(div.style.marginRight === '20px')
 })
 
-// app.innerHTML = `
-//   <h1>Hello Vite!</h1>
-//   <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-// `
+test('event delegation', () => {
+  const button = document.createElement('button')
+  on(button, 'click', (e) => {
+    console.log(e)
+  })
+
+  off(button, 'click', (e) => {
+    console.log(e)
+  })
+})
