@@ -1,6 +1,6 @@
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
-const { path } = require('@vuepress/utils')
+import path from 'path' 
+import { defaultTheme, defineUserConfig } from 'vuepress'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -15,12 +15,11 @@ const nav = [
   }
 ]
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
   base: '/carob/',
   title: 'Carob',
   description: 'JavaScript 浏览器 API 合集',
-
-  themeConfig: {
+  theme: defaultTheme({
     docsDir: 'docs',
     navbar: nav,
     sidebar: nav,
@@ -46,14 +45,13 @@ export default defineUserConfig<DefaultThemeOptions>({
 
     // // a11y
     openInNewWindow: '在新窗口打开',
-    toggleDarkMode: '切换夜间模式',
+    colorModeSwitch: true,
     toggleSidebar: '切换侧边栏',
     themePlugins: {
       // only enable git plugin in production mode
       git: isProd,
     },
-  },
-
+  }),
   markdown: {
     importCode: {
       handleImportPath: (str) =>
@@ -64,14 +62,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
     code: { lineNumbers: false }
   },
-  // markdown: {
-  //   code: { lineNumbers: false }
-  // },
-
   plugins: [
-    [
-      '@vuepress/plugin-search',
-      { placeholder: '搜索' },
-    ],
-  ],
+    searchPlugin({ locales: { '/': { placeholder: '搜索' } } })
+  ]
 })

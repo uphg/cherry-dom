@@ -10,7 +10,7 @@ interface EventDelegHandler<T, K extends keyof ElementEventMap> {
 }
 
 export function on<T extends Element, K extends keyof ElementEventMap>(
-  el: T,
+  el: T | null,
   eventName: string,
   selector: string | EventHandler<T, K>,
   handler?: EventHandler<T, K> | EventDelegOptions,
@@ -28,7 +28,7 @@ export function on<T extends Element, K extends keyof ElementEventMap>(
           target = null
           break
         }
-        target = (target as Node)?.parentNode
+        target = (target as Element)?.parentNode
       }
       target && handler.call(target as T, event)
     }
@@ -40,7 +40,7 @@ export function on<T extends Element, K extends keyof ElementEventMap>(
 }
 
 export function off<T extends Element, K extends keyof ElementEventMap>(
-  el: T,
+  el: T | null,
   eventName: string,
   handler: EventHandler<T, K>,
   options?: EventDelegOptions

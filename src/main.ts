@@ -7,6 +7,8 @@ import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
 import { off, on } from './eventDelegation'
+import toElement from './toElement'
+import getIndex from './getIndex'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 const h1 = document.createElement('h1')
@@ -126,12 +128,23 @@ test('removeStyle', () => {
 })
 
 test('event delegation', () => {
-  const button = document.createElement('button')
-  on(button, 'click', (e) => {
+  const app = toElement(`
+    <div class="app"><button id="button">我是按钮</button></div>
+  `)
+
+  document.body.appendChild(app)
+  const button = app.querySelector('#button')
+
+  on(app, 'click', '#button', (e) => {
     console.log(e)
   })
 
   off(button, 'click', (e) => {
     console.log(e)
   })
+})
+
+test('getIndex', () => {
+  console.log(getIndex(document.body))
+  console.log(getIndex(null))
 })

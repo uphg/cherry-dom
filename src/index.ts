@@ -1,4 +1,3 @@
-import isServer from './isServer'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
@@ -11,9 +10,11 @@ import getIndex from './getIndex'
 import toElement from './toElement'
 import removeChildren from './removeChildren'
 import { on, off } from './eventDelegation'
+import { isServer, isClient } from './env'
 
 export {
   isServer,
+  isClient,
   hasClass,
   addClass,
   removeClass,
