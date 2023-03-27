@@ -62,8 +62,6 @@ getScrollbarWidth() // => 17px
 getScrollParent(el) // document.body
 ```
 
-### <synta text="xxx(xxx)">xxx</synta>
-
 ### <synta text="on(el, eventName, selectorOrHandler, [handlerOrOptions], [options])">on</synta>
 
 对元素进行事件监听/事件委托
