@@ -5,7 +5,7 @@
 安装
 
 ```sh
-npm install carob
+pnpm install carob
 ```
 
 使用
