@@ -4,7 +4,94 @@ sidebar: auto
 
 # API 文档
 
-## CSS
+## 元素
+
+### <synta text="append(el, nodes[, ...args])">append</synta>
+
+在当前元素的子元素后追加元素
+
+```js
+append(document.body, [el1, el2])
+append(document.body, el1, el2, ...elN)
+```
+
+### <synta text="prepend(el, nodes[, ...args])">prepend</synta>
+
+在当前元素的子元素前追加元素
+
+```js
+prepend(document.body, [el1, el2])
+prepend(document.body, el1, el2, ...elN)
+```
+
+### <synta text="removeChildren(el)">removeChildren</synta>
+
+删除当前元素下所有子节点
+
+```js
+removeChildren(el)
+```
+
+### <synta text="toElement(innerHTML, [children])">toElement</synta>
+
+将字符串的 HTML 内容转为 DOM 元素
+
+```js
+const app = toElement(`
+  <div class="app">
+    <button id="button">Hi</button>
+  </div>
+`)
+
+append(document.body, app)
+```
+
+### <synta text="getScrollbarWidth()">getScrollbarWidth</synta>
+
+获取当前页面滚动条宽度
+
+```js
+getScrollbarWidth() // => 17px
+```
+
+### <synta text="getScrollParent(el)">getScrollParent</synta>
+
+获取当前元素上层的第一个滚动父节点
+
+```js
+getScrollParent(el) // document.body
+```
+
+### <synta text="xxx(xxx)">xxx</synta>
+
+### <synta text="on(el, eventName, selectorOrHandler, [handlerOrOptions], [options])">on</synta>
+
+对元素进行事件监听/事件委托
+
+```js
+const app = toElement(`
+  <div class="app">
+    <button id="button">我是按钮</button>
+  </div>
+`)
+
+const button = app.querySelector('#button')
+
+const onClick = (e) => {
+  console.log(e)
+}
+
+on(app, 'click', '#button', onClick)
+on(button, 'click', onClick)
+```
+
+### <synta text="off(el, eventName, handler, [options])">off</synta>
+
+取消事件监听
+
+```js
+off(el, 'click', onClick)
+```
 
 ### <synta text="addClass(el, className[, ...args])">addClass</synta>
 
@@ -87,6 +174,15 @@ el.getAttribute('style')
 // => background-color: yellow;
 ```
 
+### <synta text="getIndex(el)">getIndex</synta>
+
+获取当前元素在父元素 children 中的索引，如果元素为空或不存在父元素，会返回 -1
+
+```js
+getIndex(document.body) // 1
+getIndex(null) // -1
+```
+
 ## 工具
 
 ### isServer
@@ -101,4 +197,18 @@ isServer
 // 浏览器
 isServer
 // => false
+```
+
+### isClient
+
+获取当前环境是否为浏览器
+
+```js
+// Node.js
+isClient
+// => false
+
+// 浏览器
+isClient
+// => true
 ```
