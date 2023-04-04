@@ -157,21 +157,6 @@ el.getAttribute('style')
 // => margin-top: 20px; margin-bottom: 20px; padding-top: 10px; line-height: 1.5;
 ```
 
-### <synta text="removeStyle(el, styleName[, ...args])">removeStyle</synta>
-
-给元素清除 style 样式
-
-```js
-el.style.backgroundColor = 'yellow'
-el.style.height = '50px'
-el.style.width = '100px'
-
-removeStyle(el, 'height', 'width')
-
-el.getAttribute('style')
-// => background-color: yellow;
-```
-
 ### <synta text="getIndex(el)">getIndex</synta>
 
 获取当前元素在父元素 children 中的索引，如果元素为空或不存在父元素，会返回 -1
