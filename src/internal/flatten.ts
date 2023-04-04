@@ -2,7 +2,7 @@ import isArray from "./isArray"
 import isArrayLike from "./isArrayLike"
 import { RecursiveArray, RecursiveArrayLike } from "./types"
 
-function flat<T>(array: RecursiveArrayLike<T>) {
+function flatten<T>(array: RecursiveArrayLike<T>) {
   const length = array?.length || 0
   const result: RecursiveArray<T> = []
   let index = -1
@@ -18,4 +18,4 @@ function flat<T>(array: RecursiveArrayLike<T>) {
   return result
 }
 
-export default flat
+export default flatten
