@@ -2,7 +2,6 @@ import test from './internal/test'
 import camelize from './internal/camelize'
 import getStyle from './getStyle'
 import setStyle from './setStyle'
-import removeStyle from './removeStyle'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
@@ -100,31 +99,6 @@ test('hasClass', ()=> {
   console.assert(hasClass(div, 'border-grey') === true)
   console.assert(hasClass(div, 'blue') === true)
   console.assert(hasClass(div, 'red') === true)
-})
-
-test('removeStyle', () => {
-  const div = document.createElement('div')
-  div.textContent = 'removeStyle'
-  app.appendChild(div)
-
-  setStyle(div, {
-    width: '180px',
-    height: '100px',
-    marginTop: '20px',
-    marginBottom: '20px',
-    marginLeft: '20px',
-    marginRight: '20px'
-  })
-
-  removeStyle(div, 'height')
-  removeStyle(div, 'marginTop', 'margin-left')
-
-  console.assert(div.style.width === '180px')
-  console.assert(div.style.height === '')
-  console.assert(div.style.marginTop === '')
-  console.assert(div.style.marginLeft === '')
-  console.assert(div.style.marginBottom === '20px')
-  console.assert(div.style.marginRight === '20px')
 })
 
 test('event delegation', () => {

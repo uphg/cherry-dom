@@ -3,7 +3,6 @@ import addClass from './addClass'
 import removeClass from './removeClass'
 import getStyle from './getStyle'
 import setStyle from './setStyle'
-import removeStyle from './removeStyle'
 import append from './append'
 import prepend from './prepend'
 import getIndex from './getIndex'
@@ -20,7 +19,6 @@ export {
   removeClass,
   getStyle,
   setStyle,
-  removeStyle,
   append,
   prepend,
   getIndex,
