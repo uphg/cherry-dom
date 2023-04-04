@@ -4,25 +4,12 @@ import { searchPlugin } from '@vuepress/plugin-search'
 
 const isProd = process.env.NODE_ENV === 'production'
 
-const nav = [
-  {
-    text: '首页',
-    link: '/'
-  },
-  {
-    text: '文档',
-    link: '/docs'
-  }
-]
-
 export default defineUserConfig({
   base: '/carob/',
   title: 'Carob',
   description: 'JavaScript 浏览器 API 合集',
   theme: defaultTheme({
     docsDir: 'docs',
-    navbar: nav,
-    sidebar: nav,
 
     // page meta
     editLinkText: '在 GitHub 上编辑此页',
