@@ -24,6 +24,30 @@ prepend(document.body, [el1, el2])
 prepend(document.body, el1, el2, ...elN)
 ```
 
+### <synta text="addBefore(el, node)">addBefore</synta>
+
+在当前元素之前添加元素
+
+```js
+addBefore(el, node)
+```
+
+### <synta text="addAfter(el, node)">addAfter</synta>
+
+在当前元素之后添加元素
+
+```js
+addAfter(el, node)
+```
+
+### <synta text="getSiblings(el)">getSiblings</synta>
+
+获取除当前元素之外的所有兄弟元素
+
+```js
+getSiblings(el)
+```
+
 ### <synta text="removeChildren(el)">removeChildren</synta>
 
 删除当前元素下所有子节点
@@ -34,7 +58,7 @@ removeChildren(el)
 
 ### <synta text="toElement(innerHTML, [children])">toElement</synta>
 
-将字符串的 HTML 内容转为 DOM 元素
+将字符串内容转为 HTML 节点
 
 ```js
 const app = toElement(`

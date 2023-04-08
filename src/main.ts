@@ -5,9 +5,9 @@ import setStyle from './setStyle'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
-import { off, on } from './eventDelegation'
 import toElement from './toElement'
 import getIndex from './getIndex'
+import { off, on } from './events'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 const h1 = document.createElement('h1')
