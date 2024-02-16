@@ -16,7 +16,7 @@ run(argv)
 async function run(argv) {
   const { v: version = '0.0.1-alpha.1' } = argv
   const packageJson = {
-    name: 'carob',
+    name: 'cherry-dom',
     version,
     license: 'MIT',
     main: 'index.js',

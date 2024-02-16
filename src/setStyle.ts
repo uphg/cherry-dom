@@ -3,11 +3,7 @@ import isObject from './internal/isObject'
 import camelize from "./internal/camelize";
 import each from './internal/each'
 
-function setStyle(
-  el: StyleElement,
-  styles: Record<string, string> | string,
-  value?: string
-) {
+function setStyle(el: StyleElement, styles: Record<string, string> | string, value?: string) {
   if (isObject(styles)) {
     each(styles, (item, key) => {
       setStyle(el, key as string, item)

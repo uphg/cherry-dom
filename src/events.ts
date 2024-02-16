@@ -1,7 +1,8 @@
+import isFunction from './internal/isFunction'
+
 const delegateHandler = Symbol('delegateHandler')
 
 type EventHandler<T, K extends keyof ElementEventMap> = (this: T, ev: ElementEventMap[K]) => unknown
-
 type EventDelegOptions = boolean | EventListenerOptions | undefined
 
 interface EventDelegHandler<T, K extends keyof ElementEventMap> {
@@ -54,6 +55,3 @@ export function off<T extends Element, K extends keyof ElementEventMap>(
   return el
 }
 
-function isFunction(value: unknown): value is Function {
-  return typeof value === 'function'
-}

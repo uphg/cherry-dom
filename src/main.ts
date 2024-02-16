@@ -5,7 +5,7 @@ import setStyle from './setStyle'
 import hasClass from './hasClass'
 import addClass from './addClass'
 import removeClass from './removeClass'
-import toElement from './toElement'
+import parseHTML from './parseHTML'
 import getIndex from './getIndex'
 import { off, on } from './events'
 
@@ -102,7 +102,7 @@ test('hasClass', ()=> {
 })
 
 test('event delegation', () => {
-  const app = toElement(`
+  const app = parseHTML(`
     <div class="app"><button id="button">我是按钮</button></div>
   `)
 
